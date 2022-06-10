@@ -1,7 +1,10 @@
 const express = require('express');
+const path = require('path')
 const { getAPIdata, ACTIONS_LIST } = require('./api-helpers');
 const app = express();
+const publicDirectoryPath = path.join(__dirname, '../public');
 
+app.use(express.static(publicDirectoryPath));
 const handleRequest = async(res, action) => {
     let response;
     let isRequestSuccesful = false;
